@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
+import { ITask } from '../Model/ITask';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,11 @@ export class TasksService {
   ) { }
 
  getListaTask() {
+  return this.http.get(this.url)
+  .pipe(map(res => res.json()));
+ }
+
+salvarTask(data: ITask) {
   return this.http.get(this.url)
   .pipe(map(res => res.json()));
  }
