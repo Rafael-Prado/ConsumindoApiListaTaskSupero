@@ -11,6 +11,7 @@ import { TasksResolvedComponent } from './tasks-resolved/tasks-resolved.componen
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { CadastroTaskComponent } from './cadastro-task/cadastro-task.component';
+import { StatusTarefaPipe } from './status-tarefa.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CadastroTaskComponent } from './cadastro-task/cadastro-task.component';
     TasksWaitingoComponent,
     TasksResolvedComponent,
     HomeComponent,
-    CadastroTaskComponent
+    CadastroTaskComponent,
+    StatusTarefaPipe
   ],
   imports: [
     BrowserModule,

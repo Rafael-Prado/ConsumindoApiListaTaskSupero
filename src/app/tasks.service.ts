@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { ITask } from '../Model/ITask';
 
@@ -8,7 +8,7 @@ import { ITask } from '../Model/ITask';
 })
 export class TasksService {
 
-   public url = 'http://5b60a857bde36b00140812b3.mockapi.io/supero/super';
+   public url = 'http://localhost:21069/task/api';
 
   constructor(
     private http: Http
@@ -19,9 +19,20 @@ export class TasksService {
   .pipe(map(res => res.json()));
  }
 
-salvarTask(data: ITask) {
-  return this.http.get(this.url)
+salvarTask(data: any) {    
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({ headers: headers});
+     return this.http.post(this.url,data, options)
+     .pipe(map(res => res.json()))
+ }
+
+ getListaTaskSituacao(situacao: number) {
+  let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+  let options = new RequestOptions({ headers: headers});
+
+  return this.http.get(this.url + "/situacao/" + situacao, options)
   .pipe(map(res => res.json()));
  }
 
+ 
 }

@@ -11,6 +11,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CadastroTaskComponent implements OnInit {
   public formulario: FormGroup;
   public task: ITask[];
+  public sucesso: Boolean;
+  public flag: any;
 
   constructor
   (
@@ -41,10 +43,10 @@ export class CadastroTaskComponent implements OnInit {
   onSubmit() {
     this.TaskService.salvarTask(this.formulario.value)
     .subscribe(result => {
-      this.task.push(result);
-
-      this.formulario.reset();
+    this.sucesso = result.success;  
+    this.formulario.reset();
     });
   }
+
 
 }

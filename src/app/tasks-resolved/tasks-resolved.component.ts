@@ -8,7 +8,7 @@ import { ITask } from '../../Model/ITask';
   styleUrls: ['./tasks-resolved.component.css']
 })
 export class TasksResolvedComponent implements OnInit {
-
+    private situacao: number = 2
     public ListTask: ITask[] ;
 
     constructor(
@@ -16,11 +16,11 @@ export class TasksResolvedComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-      this.getTasks();
+      this.getTaskSituacao();
     }
 
-    getTasks() {
-      this.taskService.getListaTask()
+    getTaskSituacao() {
+      this.taskService.getListaTaskSituacao(this.situacao)
       .subscribe( result => {
         this.ListTask = result;
       }, error => {

@@ -2,7 +2,7 @@
   <h1 style="color: blue">Cadastro Tarefas</h1>
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()" >
 
-  <div class="form-group">
+  <div class="form-group" >
     <label for="titulo">Titulo</label>
     <input type="text" class="form-control" id="titulo" name="titulo"  placeholder="Titulo" formControlName="titulo" >
   </div>
@@ -10,8 +10,10 @@
   <div class="form-group">
     <label for="situacao">Situação</label>
     <select class="form-control" id="situacao"  name="situacao" formControlName="situacao" >
-      <option value="1">Aguardando</option>
-      <option value="2">Resolvido</option>
+      <option value="1">Em Andamento</option>
+      <option value="2">Finalizado</option>
+      <option value="3">Aguardando</option>
+
     </select>
   </div>
 
@@ -20,6 +22,8 @@
     <textarea class="form-control" id="tarefa"  name="tarefa" rows="3" formControlName="tarefa"></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary btn-lg btnSalvar" [disabled]="!formulario.valid">Salvar</button>
+  <button type="submit" class="btn btn-primary btn-lg btnSalvar" [disabled]="!formulario.valid" >Salvar</button>
 </form>
+
 </div>
+

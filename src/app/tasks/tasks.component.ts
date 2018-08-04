@@ -22,6 +22,7 @@ export class TasksComponent implements OnInit {
   getTasks() {
     this.taskService.getListaTask()
     .subscribe( result => {
+      console.log(result);
       this.ListTask = result;
     }, error => {
       console.log(error);

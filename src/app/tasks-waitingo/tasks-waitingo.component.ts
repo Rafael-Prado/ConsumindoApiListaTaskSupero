@@ -8,19 +8,19 @@ import { ITask } from '../../Model/ITask';
   styleUrls: ['./tasks-waitingo.component.css']
 })
 export class TasksWaitingoComponent implements OnInit {
-
   public ListTask: ITask[] ;
+  private situacao: number = 1;
 
   constructor(
     public taskService: TasksService
   ) { }
 
   ngOnInit() {
-    this.getTasks();
+    this.getTaskSituacao();
   }
 
-  getTasks() {
-    this.taskService.getListaTask()
+  getTaskSituacao() {
+    this.taskService.getListaTaskSituacao(this.situacao)
     .subscribe( result => {
       this.ListTask = result;
     }, error => {

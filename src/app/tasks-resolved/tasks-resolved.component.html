@@ -1,16 +1,19 @@
 <div>
 
-    <h1 style="color: blue">Lista de Tarefas Resolvidas</h1>
+    <h1 style="color: blue">Lista de tarefas feitas</h1>
     <div class="list-group" *ngFor="let task of ListTask">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{ task.Titulo }}</h5>
-          <small>{{task.DataCreate | date: 'dd/MM/yyyy' }}</small>
-        </div>
-        <p class="mb-1">{{ task.Corpo }}</p>
-        <small>{{ task.Situacao }} --- {{ task.DataFim | date: 'dd/MM/yyyy' }}</small>
-      </a>
-    </div>
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h4 class="mb-1">{{ task.Titulo }}</h4>
+            <small>Cadastrado em : {{task.DataCreate | date: 'dd/MM/yyyy' }}</small>
+          </div>
+          <p class="mb-1">{{ task.Corpo }}</p>
+          <div class="d-flex w-100 justify-content-between">
+            <h6 class="mb-1">{{ task.Situacao | statusTarefa }}</h6>
+            <small>Finalizado em: {{ task.DataFim | date: 'dd/MM/yyyy' }}</small>
+          </div>
+        </a>
+      </div>
 
 
   </div>
